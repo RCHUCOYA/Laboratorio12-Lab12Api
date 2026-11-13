@@ -1,0 +1,1 @@
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"dto":["The dto field is required."],"$.fechaRegistro":["The input was not valid."]},"traceId":"00-7349983fedd6de2668d946ab014bf502-a3a3b97ec60162b3-00"}

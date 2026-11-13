@@ -1,0 +1,48 @@
+Pruebas ejecutadas: Thu Nov 12 19:03:10 -05 2026
+== INSTRUCTOR ==
+06-instructor-post                   POST   /api/instructores          -> HTTP 201
+   [SQL Server] SELECT IdInstructor, Nombres, Apellidos, Especialidad, Email, Activo FROM dbo.Instructor WHERE IdInstructor = 1;
+     IdInstructor Nombres Apellidos Especialidad Email Activo
+     ------------ ------- --------- ------------ ----- ------
+     1 Carlos Ramirez Desarrollo de Software carlos@example.com 1
+07-instructor-get                    GET    /api/instructores          -> HTTP 200
+08-instructor-get-id                 GET    /api/instructores/1        -> HTTP 200
+09-instructor-put                    PUT    /api/instructores/1        -> HTTP 204
+09b-instructor-get-id-tras-put       GET    /api/instructores/1        -> HTTP 200
+   [SQL Server] SELECT IdInstructor, Nombres, Especialidad, Email FROM dbo.Instructor WHERE IdInstructor = 1;
+     IdInstructor Nombres Especialidad Email
+     ------------ ------- ------------ -----
+     1 Carlos Alberto Arquitectura de Software carlos.ramirez@example.com
+10-instructor-delete                 DELETE /api/instructores/1        -> HTTP 204
+10b-instructor-get-id-tras-delete    GET    /api/instructores/1        -> HTTP 404
+   [SQL Server] SELECT COUNT(*) AS Existe FROM dbo.Instructor WHERE IdInstructor = 1;
+     Existe
+     ------
+     0
+instructor-post-invalido             POST   /api/instructores          -> HTTP 400
+== ESTUDIANTE ==
+11-estudiante-post                   POST   /api/estudiantes           -> HTTP 201
+   [SQL Server] SELECT IdEstudiante, Nombres, Apellidos, Email, Telefono, FechaRegistro, Activo FROM dbo.Estudiante WHERE IdEstudiante = 1;
+     IdEstudiante Nombres Apellidos Email Telefono FechaRegistro Activo
+     ------------ ------- --------- ----- -------- ------------- ------
+     1 Rafael Chuco rafael@example.com 987654321 2026-11-13 00:03:11.4603650 1
+12-estudiante-get                    GET    /api/estudiantes           -> HTTP 200
+13-estudiante-get-id                 GET    /api/estudiantes/1         -> HTTP 200
+14-estudiante-put                    PUT    /api/estudiantes/1         -> HTTP 204
+14b-estudiante-get-id-tras-put       GET    /api/estudiantes/1         -> HTTP 200
+   [SQL Server] SELECT IdEstudiante, Apellidos, Email, Telefono, Activo FROM dbo.Estudiante WHERE IdEstudiante = 1;
+     IdEstudiante Apellidos Email Telefono Activo
+     ------------ --------- ----- -------- ------
+     1 Chuco Yarasca rafael.chuco@example.com 912345678 0
+15-estudiante-delete                 DELETE /api/estudiantes/1         -> HTTP 204
+15b-estudiante-get-id-tras-delete    GET    /api/estudiantes/1         -> HTTP 404
+   [SQL Server] SELECT COUNT(*) AS Existe FROM dbo.Estudiante WHERE IdEstudiante = 1;
+     Existe
+     ------
+     0
+estudiante-post-invalido             POST   /api/estudiantes           -> HTTP 400
+estudiante-post-fecha-invalida       POST   /api/estudiantes           -> HTTP 400
+== INTEGRIDAD (409) ==
+conflicto-instructor-post            POST   /api/instructores          -> HTTP 201
+instructor-delete-conflicto-409      DELETE /api/instructores/2        -> HTTP 409
+conflicto-limpieza                   DELETE /api/instructores/2        -> HTTP 204

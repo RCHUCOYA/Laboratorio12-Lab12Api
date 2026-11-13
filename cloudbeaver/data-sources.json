@@ -1,0 +1,31 @@
+{
+  "folders": {},
+  "connections": {
+    "lab12-sqlserver": {
+      "provider": "sqlserver",
+      "driver": "microsoft",
+      "name": "Lab12 - SQL Server (Lab12Db)",
+      "save-password": false,
+      "show-system-objects": false,
+      "read-only": false,
+      "configuration": {
+        "host": "sqlserver",
+        "port": "1433",
+        "database": "Lab12Db",
+        "url": "jdbc:sqlserver://sqlserver:1433;databaseName=Lab12Db;encrypt=true;trustServerCertificate=true",
+        "configurationType": "MANUAL",
+        "home": "",
+        "type": "dev",
+        "auth-model": "native",
+        "user": "sa",
+        "properties": {
+          "encrypt": "true",
+          "trustServerCertificate": "true"
+        },
+        "provider-properties": {
+          "@dbeaver-show-all-schemas@": "false"
+        }
+      }
+    }
+  }
+}

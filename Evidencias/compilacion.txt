@@ -1,0 +1,8 @@
+$ dotnet build
+  Lab12Api -> /Users/rafael/Projects/Laboratorio12/Lab12Api/bin/Debug/net10.0/Lab12Api.dll
+
+Compilación correcta.
+    0 Advertencia(s)
+    0 Errores
+
+Tiempo transcurrido 00:00:00.59

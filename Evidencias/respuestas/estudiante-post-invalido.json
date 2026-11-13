@@ -1,0 +1,1 @@
+{"type":"https://tools.ietf.org/html/rfc9110#section-15.5.1","title":"One or more validation errors occurred.","status":400,"errors":{"Email":["El email no tiene un formato válido."],"Nombres":["Los nombres son obligatorios."],"Apellidos":["Los apellidos son obligatorios."]},"traceId":"00-5dd8d8b3f059859f2234763be2e27f4a-bf03128d1e6d061e-00"}
